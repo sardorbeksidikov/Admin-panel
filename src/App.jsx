@@ -8,8 +8,6 @@ import RequireAuth from "./components/RequireAuth";
 import Add from './components/Add';
 import Edit from "./components/Edit";
 import Dashboard from './components/Dashboard/Dashboard';
-import Deposits from './components/Dashboard/Deposits';
-import Orders from './components/Dashboard/Order';
 import Title from './components/Dashboard/Title';
 import Main from './components/teachers/Main';
 import EditTeacher from './components/teachers/EditTeacher';
@@ -44,10 +42,6 @@ const App = () => {
             <Route path="/add" element={<AddTeacher />} />
             <Route path="/edit/:id" element={<Edit />} />
             <Route path="/edit/:id" element={<EditTeacher />} />
-
-            <Route path="/deposits" element={<Deposits />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/title" element={<Title />} />
           </Routes>
         </AuthProvider>
       </div>

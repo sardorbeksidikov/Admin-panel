@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { Button, Select } from "antd";
 
 const Add = () => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const Add = () => {
                 value={product.lastName}
                 onChange={hendelChange}
               />
-              <select
+              <Select
                 name="group"
                 id="group"
                 className="form-select mt-3 w-auto"
@@ -66,7 +67,7 @@ const Add = () => {
                 <option value="N208">N208</option>
                 <option value="N210">N210</option>
                 <option value="N11">N11</option>
-              </select>
+              </Select>
               <label
                 className="form-check-label mt-3 d-flex gap-2"
                 htmlFor="doeswork">
@@ -81,12 +82,12 @@ const Add = () => {
               </label>
             </div>
             <div className="d-flex gap-3">
-              <button className="btn btn-success" onClick={save}>
+              <Button className="btn btn-success" onClick={save}>
                 Сохранить
-              </button>
-              <button className="btn btn-danger" onClick={btnClose}>
+              </Button>
+              <Button className="btn btn-danger" onClick={btnClose}>
                 Отмена
-              </button>
+              </Button>
             </div>
           </div>
         </div>

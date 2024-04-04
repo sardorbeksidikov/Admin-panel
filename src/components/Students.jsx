@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Button, Input } from "antd";
 import React, { useEffect, useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
@@ -61,7 +62,7 @@ const Students = () => {
   return (
     <div className="container mt-5">
       <div className="input-group w-100">
-        <input
+        <Input
         name="search"
           type="search"
           id="search"
@@ -110,9 +111,9 @@ const Students = () => {
                   <Link to={`/edit/${el.id}`} className="btn btn-primary w-50">
                     <FaEdit />
                   </Link>
-                  <button className="btn btn-danger w-50" onClick={() => handleDelete(el.id) }>
+                  <Button className="btn btn-danger w-50" onClick={() => handleDelete(el.id) }>
                     <MdDelete />
-                  </button>
+                  </Button>
                 </td>
               </tr>
             );
@@ -122,25 +123,25 @@ const Students = () => {
       <nav>
         <ul className="pagination">
           <li className="page-item">
-            <button className="page-link" onClick={handlePrePage}>
+            <Button className="page-link" onClick={handlePrePage}>
               Prev
-            </button>
+            </Button>
           </li>
           {pageNumbers.map((number) => (
             <li
               key={number}
               className={`page-item ${currentPage === number && "active"}`}>
-              <button
+              <Button
                 className="page-link"
                 onClick={() => handleChangePage(number)}>
                 {number}
-              </button>
+              </Button>
             </li>
           ))}
           <li className="page-item mb-4">
-            <button className="page-link" onClick={handleNextPage}>
+            <Button className="page-link" onClick={handleNextPage}>
               Next
-            </button>
+            </Button>
           </li>
         </ul>
       </nav>

@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Button, Form, Select } from "antd";
 
 const Edit = () => {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ const Edit = () => {
     <>
       <section className="add-product">
         <div className="container">
-          <form onSubmit={editSave}>
+          <Form onSubmit={editSave}>
             <div className="mb-3 container  mt-5 border">
               <label htmlFor="fristname" className="form-label mt-3">
                 FristName
@@ -77,7 +78,7 @@ const Edit = () => {
                   setProduct({ ...product, lastName: e.target.value })
                 }
               />
-              <select
+              <Select
                 name="group"
                 id="group"
                 className="form-select mt-3 w-auto"
@@ -89,7 +90,7 @@ const Edit = () => {
                 <option value="N208">N208</option>
                 <option value="N210">N210</option>
                 <option value="N11">N11</option>
-              </select>
+              </Select>
               <label
                 className="form-check-label mt-3 d-flex gap-2"
                 htmlFor="doeswork">
@@ -103,14 +104,14 @@ const Edit = () => {
                 DoesWork
               </label>
             </div>
-          </form>
+          </Form>
           <div className="d-flex mb-4 gap-3">
-            <button className="btn btn-success" onClick={editSave}>
+            <Button className="btn btn-success" onClick={editSave}>
               Сохранить
-            </button>
-            <button className="btn btn-danger" onClick={btnClose}>
+            </Button>
+            <Button className="btn btn-danger" onClick={btnClose}>
               Отмена
-            </button>
+            </Button>
           </div>
         </div>
       </section>
