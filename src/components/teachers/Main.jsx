@@ -8,7 +8,7 @@ const Main = () => {
   const [data, setData] = useState([]);
   const [records, setRecords] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = 8;
+  const recordsPerPage = 5;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const Records = records.slice(firstIndex, lastIndex);
@@ -17,7 +17,7 @@ const Main = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/students")
+      .get("http://localhost:3000/teacher")
       .then((res) => {
         setData(res.data);
         setRecords(res.data);
@@ -105,7 +105,7 @@ const Main = () => {
                 <td className="border">{el.name}</td>
                 <td className="border">{el.lastName}</td>
                 <td className="border">{el.group}</td>
-                <td className="border">{el.doesWork ? "✅" : "❌"}</td>
+                <td className="border">{el.level}</td>
                 <td className="border  d-flex gap-2">
                   <Link to={`/edit/${el.id}`} className="btn btn-primary w-50">
                     <FaEdit />

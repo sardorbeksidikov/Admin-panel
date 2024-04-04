@@ -155,14 +155,14 @@ export default function Dashboard() {
                 ? theme.palette.grey[100]
                 : theme.palette.grey[900],
             flexGrow: 1,
-            height: "300vh",
+            height: "350vh",
             overflow: "auto",
           }}>
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 2, mb: 4 }}>
             <Grid container spacing={3}>
               {/* Chart */}
-              <Grid item xs={12} md={8} lg={20}>
+              <Grid item xs={20} md={30} lg={20}>
                 <Paper
                   sx={{
                   //   p: 2,

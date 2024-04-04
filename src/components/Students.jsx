@@ -66,11 +66,11 @@ const Students = () => {
           type="search"
           id="search"
           placeholder="Search"
-          className="form-control w-75"
+          className="form-control w-75 mt-4"
           onChange={Filter}
         />
 
-        <Link className="btn btn-success" to={'/add'}>
+        <Link className="btn btn-success mt-4" to={'/add'}>
           Add
         </Link>
       </div>
@@ -137,7 +137,7 @@ const Students = () => {
               </button>
             </li>
           ))}
-          <li className="page-item">
+          <li className="page-item mb-4">
             <button className="page-link" onClick={handleNextPage}>
               Next
             </button>

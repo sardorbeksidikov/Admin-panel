@@ -1,15 +1,16 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { EditRoad } from "@mui/icons-material";
 
-const Edit = () => {
+const EditTeacher = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState({
     name: "",
     lastName: "",
     group: "N45",
-    doesWork: false,
+    level: "Sinior",
   });
 
   useEffect(() => {
@@ -21,15 +22,13 @@ const Edit = () => {
           name: res.data.name,
           lastName: res.data.lastName,
           group: res.data.group,
-          doesWork: res.data.doesWork,
+          level: res.data.level,
         });
       })
       .catch((err) => console.log(err));
   }, [id]);
 
-  const handleCheckboxChange = (e) => {
-    setProduct({ ...product, doesWork: e.target.checked });
-  };
+  
 
   const btnClose = () => {
     navigate("/");
@@ -90,24 +89,22 @@ const Edit = () => {
                 <option value="N210">N210</option>
                 <option value="N11">N11</option>
               </select>
-              <label
-                className="form-check-label mt-3 d-flex gap-2"
-                htmlFor="doeswork">
-                <input
-                  type="checkbox"
-                  className="form-check-input mb-3"
-                  defaultChecked={product.doesWork}
-                  id="doeswork"
-                  onChange={handleCheckboxChange}
-                />
-                DoesWork
-              </label>
+              <select
+                name="level"
+                id="level"
+                className="form-select mt-3 w-auto"
+                value={product.level}
+                onChange={(e) =>
+                  setProduct({ ...product, level: e.target.value })
+                }>
+                <option value="Sinior">Sinior</option>
+                <option value="Middle">Middle</option>
+                <option value="Junior">Junior</option>
+              </select>
             </div>
           </form>
           <div className="d-flex mb-4 gap-3">
-            <button className="btn btn-success" onClick={editSave}>
-              Сохранить
-            </button>
+            <button type="primery" onClick={editSave}>Сохранить</button>
             <button className="btn btn-danger" onClick={btnClose}>
               Отмена
             </button>
@@ -118,4 +115,4 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+export default EditTeacher;
