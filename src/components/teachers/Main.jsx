@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FaEdit } from "react-icons/fa";
@@ -110,11 +111,11 @@ const Main = () => {
                   <Link to={`/edit/${el.id}`} className="btn btn-primary w-50">
                     <FaEdit />
                   </Link>
-                  <button
+                  <Button
                     className="btn btn-danger w-50"
                     onClick={() => handleDelete(el.id)}>
                     <MdDelete />
-                  </button>
+                  </Button>
                 </td>
               </tr>
             );
@@ -124,25 +125,25 @@ const Main = () => {
       <nav>
         <ul className="pagination">
           <li className="page-item">
-            <button className="page-link" onClick={handlePrePage}>
+            <Button className="page-link" onClick={handlePrePage}>
               Prev
-            </button>
+            </Button>
           </li>
           {pageNumbers.map((number) => (
             <li
               key={number}
               className={`page-item ${currentPage === number && "active"}`}>
-              <button
+              <Button
                 className="page-link"
                 onClick={() => handleChangePage(number)}>
                 {number}
-              </button>
+              </Button>
             </li>
           ))}
           <li className="page-item">
-            <button className="page-link" onClick={handleNextPage}>
+            <Button className="page-link" onClick={handleNextPage}>
               Next
-            </button>
+            </Button>
           </li>
         </ul>
       </nav>
