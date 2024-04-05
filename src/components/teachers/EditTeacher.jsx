@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { EditRoad } from "@mui/icons-material";
+import { Button, Select } from "antd";
 
 const EditTeacher = () => {
   const navigate = useNavigate();
@@ -89,7 +90,7 @@ const EditTeacher = () => {
                 <option value="N210">N210</option>
                 <option value="N11">N11</option>
               </select>
-              <select
+              <Select
                 name="level"
                 id="level"
                 className="form-select mt-3 w-auto"
@@ -100,14 +101,14 @@ const EditTeacher = () => {
                 <option value="Sinior">Sinior</option>
                 <option value="Middle">Middle</option>
                 <option value="Junior">Junior</option>
-              </select>
+              </Select>
             </div>
           </form>
           <div className="d-flex mb-4 gap-3">
-            <button type="primery" onClick={editSave}>Сохранить</button>
-            <button className="btn btn-danger" onClick={btnClose}>
+            <Button type="primery" onClick={editSave}>Сохранить</Button>
+            <Button className="btn btn-danger" onClick={btnClose}>
               Отмена
-            </button>
+            </Button>
           </div>
         </div>
       </section>
