@@ -11,3 +11,7 @@ span {
 a.active span {
   color: crimson;
 }
+
+.error{
+  color: red;
+}

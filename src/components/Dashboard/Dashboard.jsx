@@ -19,7 +19,6 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { mainListItems, secondaryListItems } from "./Liststems";
 import Students from "../Students";
-import Main from './../teachers/Main';
 
 function Copyright(props) {
   return (

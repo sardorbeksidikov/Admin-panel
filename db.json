@@ -10,23 +10,8 @@
     {
       "id": "2",
       "name": "Ulugbek",
-      "lastName": "Eshnazarov",
       "group": "N45",
-      "doesWork": false
-    },
-    {
-      "id": "3",
-      "name": "Salmonbek",
-      "lastName": "Akbarov",
-      "group": "N45",
-      "doesWork": true
-    },
-    {
-      "id": "4",
-      "name": "Marjona",
-      "lastName": "Bobobekova",
-      "group": "N208",
-      "doesWork": false
+      "sur": "kjfdalsfdas"
     },
     {
       "id": "5",
@@ -352,12 +337,66 @@
       "name": "Parvina",
       "lastName": "Yoldasheva",
       "group": "N11",
+      "doesWork": false
+    },
+    {
+      "id": "3858",
+      "name": "",
+      "lastName": "afdasfsdfasdafds",
+      "group": "N45",
+      "doesWork": false
+    },
+    {
+      "id": "4760",
+      "name": "",
+      "lastName": "dafsfdasffdasfdadsfafdafda",
+      "group": "N45",
+      "doesWork": false
+    },
+    {
+      "id": "c894",
+      "name": "fdasfdas",
+      "lastName": "",
+      "group": "N208",
+      "doesWork": false
+    },
+    {
+      "id": "6e72",
+      "name": "",
+      "lastName": "fdasfdas",
+      "group": "N45",
+      "doesWork": false
+    },
+    {
+      "id": "7147",
+      "name": "dfsafdasfadsdf",
+      "lastName": "",
+      "group": "N45",
+      "doesWork": false,
+      "firstname": "d"
+    },
+    {
+      "id": "358c",
+      "name": "",
+      "lastName": "fdasdfsa",
+      "group": "N45",
+      "doesWork": false
+    },
+    {
+      "id": "9114",
+      "name": "fdasffdasafd",
+      "lastName": "",
+      "group": "N45",
+      "doesWork": false
+    },
+    {
+      "id": "bcda",
+      "name": "fdsafd",
+      "lastName": "",
+      "group": "N45",
       "doesWork": false
     }
-    
   ],
-
-
   "teacher": [
     {
       "id": "1",
@@ -410,4 +449,3 @@
     }
   ]
 }
-

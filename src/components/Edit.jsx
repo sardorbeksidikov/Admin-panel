@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Button, Form, Select } from "antd";
+import { useForm } from "react-hook-form";
 
 const Edit = () => {
   const navigate = useNavigate();
@@ -15,77 +16,73 @@ const Edit = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/teacher/${id}`)
+      .get(`http://localhost:3000/students/${id}`)
       .then((res) => {
-        setProduct({
-          ...product,
-          name: res.data.name,
-          lastName: res.data.lastName,
-          group: res.data.group,
-          doesWork: res.data.doesWork,
-        });
+        setProduct(res.data); // Ma'lumotlarni yuklash
       })
       .catch((err) => console.log(err));
   }, [id]);
-
-  const handleCheckboxChange = (e) => {
-    setProduct({ ...product, doesWork: e.target.checked });
-  };
 
   const btnClose = () => {
     navigate("/");
   };
 
-  const editSave = (e) => {
-    e.preventDefault();
-    axios
-      .put(`http://localhost:3000/students/${id}`, product)
-      .then((res) => {
-        navigate("/");
-      })
-      .catch((err) => console.log(err));
+  const { register, handleSubmit, formState } = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      await axios.put(`http://localhost:3000/students/${id}`, data); // Ma'lumotlarni yangilash
+      navigate("/"); // Boshqa sahifaga o'tish
+    } catch (error) {
+      console.error("Saqlashda xatolik yuz berdi:", error);
+      // Foydalanuvchiga xabar berish
+      alert(
+        "Ma'lumotlarni saqlashda xatolik yuz berdi. Iltimos, qaytadan urinib ko'ring."
+      );
+    }
   };
 
   return (
     <>
       <section className="add-product">
         <div className="container">
-          <Form onSubmit={editSave}>
-            <div className="mb-3 container  mt-5 border">
-              <label htmlFor="fristname" className="form-label mt-3">
-                FristName
+          <Form onSubmit={handleSubmit(onSubmit)}>
+            <div className="mb-3 container mt-5 border">
+              <label htmlFor="name" className="form-label mt-3">
+                Ism
               </label>
               <input
-                name="name"
+                {...register("name", {
+                  required: "Ism kerak",
+                })}
                 type="text"
-                id="fristname"
+                id="name"
                 className="form-control"
-                value={product.name}
-                onChange={(e) =>
-                  setProduct({ ...product, name: e.target.value })
-                }
+                defaultValue={product.name}
               />
-              <label htmlFor="lastname" className="form-label mt-3">
-                LastName
+              <span className="error">
+                {formState.errors.name && formState.errors.name.message}
+              </span>
+              <label htmlFor="lastName" className="form-label mt-3">
+                Familiya
               </label>
               <input
-                name="lastName"
+                {...register("lastName", {
+                  required: "Familiya kerak",
+                })}
                 type="text"
-                id="lastname"
+                id="lastName"
                 className="form-control"
-                value={product.lastName}
-                onChange={(e) =>
-                  setProduct({ ...product, lastName: e.target.value })
-                }
+                defaultValue={product.lastName}
               />
+              <span className="error">
+                {formState.errors.lastName && formState.errors.lastName.message}
+              </span>
               <Select
-                name="group"
+                {...register("group")}
                 id="group"
                 className="form-select mt-3 w-auto"
-                value={product.group}
-                onChange={(e) =>
-                  setProduct({ ...product, group: e.target.value })
-                }>
+                defaultValue={product.group}>
                 <option value="N45">N45</option>
                 <option value="N208">N208</option>
                 <option value="N210">N210</option>
@@ -93,26 +90,26 @@ const Edit = () => {
               </Select>
               <label
                 className="form-check-label mt-3 d-flex gap-2"
-                htmlFor="doeswork">
+                htmlFor="doesWork">
                 <input
                   type="checkbox"
-                  className="form-check-input mb-3"
+                  {...register("doesWork")}
                   defaultChecked={product.doesWork}
-                  id="doeswork"
-                  onChange={handleCheckboxChange}
+                  id="doesWork"
+                  className="form-check-input mb-3"
                 />
-                DoesWork
+                Ishlaydi
               </label>
             </div>
+            <div className="d-flex mb-4 gap-3">
+              <Button className="btn btn-success" type="submit">
+                Saqlash
+              </Button>
+              <Button className="btn btn-danger" onClick={btnClose}>
+                Bekor qilish
+              </Button>
+            </div>
           </Form>
-          <div className="d-flex mb-4 gap-3">
-            <Button className="btn btn-success" onClick={editSave}>
-              Сохранить
-            </Button>
-            <Button className="btn btn-danger" onClick={btnClose}>
-              Отмена
-            </Button>
-          </div>
         </div>
       </section>
     </>
